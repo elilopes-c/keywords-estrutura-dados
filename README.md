@@ -288,6 +288,9 @@ linguagens = ["python", "js", "c", "java", "csharp"] # Sua caixa de linguagens
 print(len(linguagens)) # Quantos itens tem na caixa? Saída: 5
 ```
 
+///
+---
+
  ## * `Tuplas` (Coleções Imutáveis)
  _Imagine uma `tupla` como uma daquelas caixas organizadoras super especiais que, depois de montadas e preenchidas, **não podem mais ser modificadas**! Uma vez que você coloca algo dentro dela, aquilo fica lá, fixo e seguro. Elas são como listas, mas com um superpoder de **segurança** contra mudanças acidentais._
 
@@ -413,6 +416,9 @@ print(len(linguagens)) # Quantos itens tem na caixa? Saída: 5
  print(contagem_verde) # Saída: 1
 ```
 
+///
+---
+
  ## * `Set` (Conjuntos: Caixas de Itens Únicos e Desorganizados!)
  _Imagine um `set` como uma caixa mágica onde você só pode guardar **itens únicos** e a ordem deles não importa. Se você tentar colocar duas vezes o mesmo item, a caixa magicamente o ignorará e só guardará uma cópia. Além disso, os itens ficam "desorganizados" lá dentro, sem uma ordem fixa! É como uma lista de convidados para uma festa onde não importa a ordem de chegada, e ninguém pode ser convidado duas vezes._
 
@@ -526,6 +532,9 @@ print(len(linguagens)) # Quantos itens tem na caixa? Saída: 5
  print("peixe" in animais) # Saída: False
  ```
 
+///
+---
+
  ### **Operações de Conjunto (União, Interseção, Diferença, Diferença Simétrica)**
 
  _Sets são ideais para simular operações matemáticas de conjuntos, que são muito úteis em análise de dados e lógica._
@@ -597,3 +606,151 @@ print(len(linguagens)) # Quantos itens tem na caixa? Saída: 5
  diferenca_simetrica_set_metodo = set_a.symmetric_difference(set_b)
  print(diferenca_simetrica_set_metodo) # Saída: {1, 2, 4, 5} (ordem pode variar)
  ```
+
+///
+---
+
+# Dicionários em Python
+ _Imagine que você tem um armário mágico onde cada gaveta tem uma **etiqueta única** e dentro dela você guarda algo. Quando você quer encontrar algo, não precisa procurar em todas as gavetas; basta ler a etiqueta da gaveta que você quer abrir e pegar o item exato. Assim são os dicionários em Python: eles guardam informações organizadas em pares de "etiquetas" (chaves) e "conteúdos" (valores), permitindo que você encontre o que precisa super rápido!_
+
+ ## 1. O que é um Dicionário? O Armário Mágico
+ _Um dicionário é como aquele armário mágico que descrevemos. Cada par de **chave: valor** é como uma gaveta etiquetada com seu conteúdo. A **chave** é a etiqueta (precisa ser única e imutável, como um nome), e o **valor** é o que está guardado dentro da gaveta (pode ser qualquer coisa!)._
+
+ ### Sintaxe Básica do Dicionário
+     # Um dicionário é definido com chaves { }
+     # E os pares chave: valor são separados por vírgulas
+     meu_dicionario = {
+         "chave1": "valor1",
+         "chave2": "valor2"
+     }
+
+ ### Exemplos com Dicionários
+
+ **Exemplo:** Lista de Contatos no Celular
+ _Seu celular guarda contatos. O nome da pessoa é a "chave" e o número de telefone é o "valor"._
+     # Criando um dicionário de contatos
+     contatos = {
+         "Alice": "9876-5432",
+         "Bob": "1234-5678",
+         "Carlos": "5555-4444"
+     }
+     
+     print(contatos) 
+     # Saída: {'Alice': '9876-5432', 'Bob': '1234-5678', 'Carlos': '5555-4444'}
+
+ ## 2. Acessando Valores: Abrindo a Gaveta Certa
+ _Para pegar algo do seu armário mágico (dicionário), você usa a **etiqueta** (chave) da gaveta que deseja abrir. É simples e direto!_
+
+ ### Sintaxe de Acesso
+     valor = meu_dicionario["chave"] # Acessa o valor associado à chave
+
+ ### Exemplos de Acesso
+
+ **Exemplo:** Pegando o Telefone do Bob
+ _Para pegar o número do Bob, você usa o nome dele como a chave._
+     contatos = {
+         "Alice": "9876-5432",
+         "Bob": "1234-5678",
+         "Carlos": "5555-4444"
+     }
+     
+     telefone_bob = contatos["Bob"]
+     print(f"O telefone do Bob é: {telefone_bob}") # Saída: O telefone do Bob é: 1234-5678
+
+ ## 3. Adicionando e Alterando Itens: Guardando e Trocando Conteúdo
+ _Você pode colocar coisas novas em gavetas novas, ou até mesmo trocar o conteúdo de uma gaveta já existente. Se a etiqueta já existe, você troca o que está dentro; se não existe, você cria uma nova gaveta com essa etiqueta e o conteúdo._
+
+ ### Sintaxe de Adição/Alteração
+     meu_dicionario["nova_chave"] = "novo_valor" # Adiciona um novo par
+     meu_dicionario["chave_existente"] = "novo_valor" # Altera o valor de uma chave existente
+
+ ### Exemplos de Adição e Alteração
+
+ **Exemplo:** Adicionando um Novo Contato e Atualizando um Existente
+ _Um amigo novo aparece, e outro amigo troca de número._
+     contatos = {
+         "Alice": "9876-5432",
+         "Bob": "1234-5678"
+     }
+     
+     # Adicionando um novo contato
+     contatos["Diana"] = "9999-8888"
+     print(f"Dicionário após adicionar Diana: {contatos}")
+     # Saída: {'Alice': '9876-5432', 'Bob': '1234-5678', 'Diana': '9999-8888'}
+     
+     # Alterando o número da Alice
+     contatos["Alice"] = "7777-1111"
+     print(f"Dicionário após mudar Alice: {contatos}")
+     # Saída: {'Alice': '7777-1111', 'Bob': '1234-5678', 'Diana': '9999-8888'}
+
+ ## 4. Removendo Itens: Esvaziando Gavetas
+ _Às vezes, você precisa esvaziar uma gaveta ou até mesmo remover a gaveta inteira do armário. Para isso, usamos `del` ou `pop()`._
+
+ ### Sintaxe de Remoção
+     del meu_dicionario["chave_a_remover"] # Remove o par chave-valor
+     valor_removido = meu_dicionario.pop("chave_a_remover") # Remove e retorna o valor
+
+ ### Exemplos de Remoção
+
+ **Exemplo:** Deletando um Contato
+ _Um contato mudou-se e você precisa removê-lo da sua lista._
+     contatos = {
+         "Alice": "9876-5432",
+         "Bob": "1234-5678",
+         "Carlos": "5555-4444"
+     }
+     
+     del contatos["Bob"] # Remove Bob
+     print(f"Dicionário após remover Bob: {contatos}")
+     # Saída: {'Alice': '9876-5432', 'Carlos': '5555-4444'}
+
+ ## 5. Métodos Úteis: Ferramentas Especiais do Armário
+ _Seu armário mágico vem com algumas ferramentas que te ajudam a inspecionar o que tem dentro._
+
+ - **`.keys()`**: _Pega a lista de todas as etiquetas (chaves) das gavetas._
+ - **`.values()`**: _Pega a lista de tudo o que está dentro das gavetas (valores)._
+ - **`.items()`**: _Pega a lista de **pares** (etiqueta, conteúdo) de todas as gavetas._
+
+ ### Exemplos de Métodos
+
+ **Exemplo:** Explorando o Armário de Frutas
+ _Você tem um dicionário de frutas e quer ver só os nomes das frutas, ou só as quantidades, ou ambos._
+     inventario_frutas = {
+         "maçã": 10,
+         "banana": 5,
+         "laranja": 8
+     }
+     
+     print("Chaves (nomes das frutas):")
+     for fruta in inventario_frutas.keys():
+         print(f"- {fruta}")
+     # Saída:
+     # - maçã
+     # - banana
+     # - laranja
+     
+     print("\nValores (quantidades):")
+     for quantidade in inventario_frutas.values():
+         print(f"- {quantidade}")
+     # Saída:
+     # - 10
+     # - 5
+     # - 8
+     
+     print("\nPares (nome e quantidade):")
+     for fruta, quantidade in inventario_frutas.items():
+         print(f"- {fruta}: {quantidade}")
+     # Saída:
+     # - maçã: 10
+     # - banana: 5
+     # - laranja: 8
+
+ ## Conclusão
+ Os dicionários em Python são como organizadores super eficientes. Eles nos permitem armazenar e acessar dados de forma rápida e intuitiva, usando "chaves" descritivas em vez de apenas números de índice. Seja para organizar informações de clientes, configurações de um jogo ou qualquer dado que precise de um rótulo para ser encontrado, os dicionários são a ferramenta perfeita no seu kit de programação!
+
+
+
+
+
+
+
