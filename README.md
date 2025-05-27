@@ -156,13 +156,13 @@ _Pense no `.append()` como a ação de **colocar um novo item no final da sua ca
 É a forma mais simples de adicionar algo, sempre lá na última posição disponível._
 
 **Exemplo:**
-```
-lista = [] # Sua caixa mágica está vazia
-lista.append(1) # Você adiciona o número 1
-lista.append("Python") # Depois, adiciona a palavra "Python"
-lista.append([40, 30, 20]) # E por último, adiciona uma caixinha menor com três números!
-
-print(lista) # Saída: [1, 'Python', [40, 30, 20]]
+```python
+    lista = [] # Sua caixa mágica está vazia
+    lista.append(1) # Você adiciona o número 1
+    lista.append("Python") # Depois, adiciona a palavra "Python"
+    lista.append([40, 30, 20]) # E por último, adiciona uma caixinha menor com três números!
+    
+    print(lista) # Saída: [1, 'Python', [40, 30, 20]]
 ```
 
 ## * .clear()
